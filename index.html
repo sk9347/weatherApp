@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+</head>
+
+<style>
+
+    body{
+      background-image: url('https://t4.ftcdn.net/jpg/02/10/54/69/360_F_210546904_9BCZEy11YRxLIXH4WHC1btb0sPx7nF2m.jpg');
+      size: 100% 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: aqua;
+      /* filter: blur(2px); */
+  /* -webkit-filter: blur(5px); */
+    }
+
+    input{
+        padding: 15px;
+        margin: 15px;
+        border-radius: 10px;
+    }
+    label{
+    
+        margin: 50px ;
+        font-size: larger;
+
+    }
+    h1{
+    
+      font-size: 32px;
+      color: whitesmoke;
+        margin-top: 150px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+    div{
+      border: 1px solid whitesmoke;
+      border-radius: 10px;
+      display: block;
+      align-items: center;
+      width: 500px;
+      height: 500px;
+      margin-left: 35%;
+      margin-top: 5%;
+      text-align: center;
+
+      
+    }
+  
+</style>
+<body>
+  <div>
+    <h1 style="z-index: 2;">Temperature converter</h1><br>
+
+    <label for="Faherenheit" style="position: relative; left: -45px;">Faherenheit</label>
+
+    <label for="Celsius">Celsius</label><br>
+    <input
+      type="number"
+      id="fahrenheitInput"
+      placeholder="Enter temperature in Fahrenheit"
+      oninput="convertToCelsius()"/>=
+     
+    <input type="number" id="celsiusInput" placeholder="Temperature in Celsius" />
+</div>
+    <script>
+      const fahrenheitInput = document.getElementById("fahrenheitInput");
+      const celsiusInput = document.getElementById("celsiusInput");
+
+      fahrenheitInput.addEventListener("input", function () {
+        if (fahrenheitInput.value === "") {
+          celsiusInput.value = "";
+          return;
+        }
+        let fTemp = parseFloat(fahrenheitInput.value);
+        let cTemp = ((fTemp - 32) * 5) / 9;
+        celsiusInput.value = cTemp.toFixed(2);
+      });
+
+
+     
+    </script>
+</body>
+</html>
